@@ -53,7 +53,7 @@ h3 {
 	color: var(--grey);
 }
 
-p {
+p, label {
 	font-size: 16px;
 	color: var(--grey);
 }
@@ -470,10 +470,11 @@ form .form label {
 	position: absolute;
 	top: 50%;
 	left: 8px;
-	color: var(--grey);
+	color: red;
 	transform: translateY(-50%);
 	padding: 0 2px;
 	transition: .3s ease;
+	opacity: 0.75;
 }
 
 form .form textarea ~ label {
@@ -633,3 +634,12 @@ form button:hover {
 	  max-width: 100%;
 	}
   }
+
+  .formularioblog{
+	margin-top: 80px;
+	text-align: left;
+	background: var(--light-blue);
+	padding: 60px;
+	border-radius: 20px;
+  }
+  

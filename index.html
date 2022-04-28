@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 
     <!--Font Awesome Cdn-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -17,6 +18,7 @@
     <!--Custom css-->
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="stylesheet" href="./style/mobile.css">
+    <link rel="stylesheet" href="./style/forms.css">
     
 </head>
 
@@ -287,25 +289,25 @@
 
     <section id="contacto" class="contact">
         <div class="formulario-container">
-            <form action="">
-                <h2>Contactanos 👇</h2>
-                <div class="form-inline">
-                    <div class="form">
-                        <input type="text" id=first-name>
-                        <label for="first-name">Nombre</label>
-                    </div>
-                    <div class="form">
-                        <input type="text" id=last-name>
-                        <label for="last-name">Apellido</label>
-                    </div>
-                </div>
+            <form action="" id="registration">
+                <h2>¿Quieres contactarnos? 👇</h2>
+                <h2></h2>
+                <p>Nombre</p>
                 <div class="form">
-                    <input type="email" id="email">
-                    <label for="email">Correo electronico</label>
+                    <input type="text" name=firstname>
                 </div>
+                <p>Apellidos</p>
+                <div class="form">
+                    <input type="text" name=lastname>
+                </div>
+                <p>Correo electronico</p>
+                <div class="form">
+                    <input type="email" name="email">
+                </div>
+                <p>Descripcion</p>
+
                 <div class="form">
                     <textarea name="desc" id="" cols="30" rows="5"></textarea>
-                    <label for="desc">Descripción</label>
                 </div>
                 <button type="submit">Enviar</button>
             </form>
@@ -319,33 +321,9 @@
     </footer>
 
     <!--Javascript-->
-    <script>
-        let togglebtn = document.querySelector('.toggle-btn')
-        let navbar = document.querySelector('.navbar')
+    <script src="js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 
-
-        togglebtn.addEventListener('click', ()=>{
-            navbar.classList.toggle('mobile-nav')
-        })
-
-        const allForm = document.querySelectorAll('.form input, .form textarea');
-
-        for(let form of allForm) {
-            form.addEventListener('input', function() {
-                if(this.checkValidity()) {
-                    this.classList.add('valid');
-                    this.classList.remove('invalid');
-                } else {
-                    this.classList.add('invalid');
-                    this.classList.remove('valid');
-                }
-
-                if(this.value === '') {
-                    this.classList.remove('valid');
-                    this.classList.remove('invalid');
-                }
-            });
-        }
-    </script>
 </body>
 </html>
