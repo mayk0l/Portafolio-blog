@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,23 +17,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!--Custom css-->
-    <link rel="stylesheet" href="./style/style.css">
-    <link rel="stylesheet" href="./style/mobile.css">
-    <link rel="stylesheet" href="./style/forms.css">
-
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/css/mobile.css' %}"/>
+    <link rel="stylesheet" href="{% static 'core/css/forms.css' %}"/>
 
 </head>
 <body>
     <nav class="navbar">
         <div class="brand">
-            <img src="./img/logo.png" alt="" class="logo" />
+            <img src="{% static 'core/img/logo.png' %}" alt="" class="logo" />
         </div>
         <div class="nav-list">
             <ul>
-                <a href="index.html">
+                <a href="{% url 'home' %}">
                     <li>Volver</li>
                 </a>
-                <a href="iniciarsesion.html">
+                <a href="{% url 'iniciarsesion' %}">
                   <li>Mi Cuenta</li>
               </a>
             </ul>
@@ -86,7 +86,7 @@
                 <div class="form">
                     <input type="email" name="email">
                 </div>
-                <p>¿Ya tienes cuenta?<a href="iniciarsesion.html"> Inicia sesión</a></p>
+                <p>¿Ya tienes cuenta?<a href="{% url 'iniciarsesion' %}"> Inicia sesión</a></p>
                 <button type="submit">Enviar</button>
             </form>
         </div>
@@ -94,7 +94,7 @@
 
     
     
-    <script src="js/script.js"></script>
+    <script src="{% static 'core/js/script.js' %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
 </body>
