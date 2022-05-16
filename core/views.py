@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Blog
 
 # Create your views here.
 
@@ -13,3 +14,10 @@ def iniciarsesion(request):
 
 def registro(request):   
     return render(request, 'core/registro.html')
+
+def listadoblogs(request):
+    blogs = Blog.objects.all()
+    datos = {
+        'blogs':blogs
+    }
+    return render(request, 'core/listadoblogs.html',datos)
