@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Blog
+from .forms import BlogForm
 
 # Create your views here.
 
@@ -21,3 +22,17 @@ def listadoblogs(request):
         'blogs':blogs
     }
     return render(request, 'core/listadoblogs.html',datos)
+
+def agregarblog(request):
+    datos = {
+        'form' : BlogForm()
+    }
+
+    if (request.method == 'POST'):
+        formulario = BlogForm(request.POST)
+        if formulario.is_valid():
+            formulario.save() #insert
+            datos['mensaje'] = "Se guardó blog"
+        else:
+            datos['mensaje'] = "Revise datos"
+    return render(request, 'core/agregarblog.html',{'datos':datos})
