@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Blog</title>
+
+    <!--Custom css-->
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/css/mobile.css' %}"/>
+    <link rel="stylesheet" href="{% static 'core/css/forms.css' %}"/>
+
+    <!--Boostrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    
+</head>
+<body>
+    <div class="row">
+        <form action="" method="post" id="formulario">
+                {% csrf_token %}
+
+            <div class="form_group">
+                {{ form.as_table }}
+
+            </div>
+            <input type="submit" class="btn btn-danger" value="Eliminar">
+            <input type="reset" class="btn btn-primary" value="Limpiar">
+            <div id="exito" class="alert alert-success" role="alert">
+                {{mensaje}}
+            </div>
+            
+        </form>
+    </div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Blog
 from .forms import BlogForm
 
@@ -23,7 +23,7 @@ def listadoblogs(request):
     }
     return render(request, 'core/listadoblogs.html',datos)
 
-def agregarblog(request):
+def form_blog(request):
     datos = {
         'form' : BlogForm()
     }
@@ -31,8 +31,27 @@ def agregarblog(request):
     if (request.method == 'POST'):
         formulario = BlogForm(request.POST)
         if formulario.is_valid():
-            formulario.save() #insert
-            datos['mensaje'] = "Se guardó blog"
-        else:
-            datos['mensaje'] = "Revise datos"
-    return render(request, 'core/agregarblog.html',{'datos':datos})
+            formulario.save() 
+            datos['mensaje'] = "Se guardó el blog"
+    return render(request, 'core/form_blog.html', datos)
+
+def modificar_blog(request, id):
+    blogs = Blog.objects.get(idBlog=id)
+
+    datos = {
+        'form' : BlogForm(instance=blogs)
+    }
+
+    if (request.method == 'POST'):
+        formulario = BlogForm(data = request.POST, instance = blogs)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = "Se modificó blog"
+
+    return render(request,'core/modificar_blog.html', datos)
+
+def eliminar_blog(request, id):
+    blogs = Blog.objects.get(idBlog=id)
+    Blog.delete()
+
+    return redirect(to='home')
