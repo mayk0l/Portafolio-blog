@@ -52,6 +52,6 @@ def modificar_blog(request, id):
 
 def eliminar_blog(request, id):
     blogs = Blog.objects.get(idBlog=id)
-    Blog.delete()
+    blogs.delete()
 
     return redirect(to='home')
