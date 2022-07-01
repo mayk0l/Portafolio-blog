@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Blogs</title>
+
+    <!--Custom css-->
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/css/mobile.css' %}"/>
+    <link rel="stylesheet" href="{% static 'core/css/tablas.css' %}" />
+
+    <!--Boostrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
+</head>
+<body>
+    <div class="datatable-container">
+        <table border="1" class="datatable"><p>Lista de blogs</p>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Email</th>
+                <th scope="col">Body</th>
+                <th scope="col">Opciones</th>
+            </tr>
+            {% for blo in blogs %}
+            <tr>
+                <td>{{blo.idBlog}}</td>
+                <td>{{blo.name}}</td>
+                <td>{{blo.email}}</td>
+                <td>{{blo.body}}</td>
+                <td><a href="{% url 'modificar_blog' blo.idBlog %}">Modificar</a></td>
+                <td><a href="{% url 'eliminar_blog' blo.idBlog %}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

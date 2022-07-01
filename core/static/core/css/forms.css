@@ -1,0 +1,28 @@
+:root {
+	--h1: #130F49;
+	--blue: #34A1CD;
+	--dark-purple: #55527C;
+	--grey: #B4B2C5;
+	--pink: #EA4C89;
+	--circle: #F4F3FF;
+	--light-pink: #FFF5F6;
+	--light-purple: #ADA8FF;
+	--light-blue: #E9F9FF;
+	--red: #ff0000;
+}
+
+label {
+	font-size: 12px;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+span {
+	color: var(--red);
+	opacity: 0.75;
+	top: -100px;
+}
+
