@@ -62,7 +62,7 @@ ROOT_URLCONF = 'PortafolioBlog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR, "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'core.context_processor.total_carrito',
             ],
         },
     },
@@ -155,5 +156,5 @@ SOCIALACCOUNT_PROVIDERS = {
 
 SITE_ID = 5
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/accounts/google/login/'
 LOGOUT_REDIRECT_URL = '/'

@@ -1,4 +1,5 @@
 {% load static %}
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -73,6 +74,12 @@
                     <span id="errorContra"></span>
                 </div>
                 <p>¿Aun no tienes cuenta?<a href="{% url 'registro' %}"> Registrate</a></p>
+                {% if user.is_authenticated %}
+                <p>Bienvenido, estas logueado como {{ user.username }}</p>
+                {% else %}
+                <a href="{% provider_login_url 'google' %}">Logueate con google</a>
+                {% endif %}
+                <br>
                 <button type="submit">Enviar</button>
             </form>
         </div>

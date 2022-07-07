@@ -25,13 +25,6 @@
     
 </head>
 <body>
-{% if user.is_authenticated %}
-    <p>Bienvenido, estas logueado como {{ user.username }}</p>
-{% else %}
-  <a href="{% provider_login_url 'google' %}">Logueate con google</a>
-{% endif %}
-
-
     <section id="contacto" class="contact">
         <div class="formulario-container">
             <div class="row">
